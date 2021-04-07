@@ -6,8 +6,9 @@ import { useFonts } from 'expo-font';
 import AppLoading from 'expo-app-loading';
 import { Oswald_400Regular } from '@expo-google-fonts/oswald';
 import { Lato_400Regular } from '@expo-google-fonts/lato';
+import { NavigationContainer } from '@react-navigation/native';
 
-import RestaurantsScreen from './src/features/restaurants/screens/RestaurantsScreen';
+import BottomTabNavigator from './src/navigation/BottomTabs';
 
 export default function App() {
   const [loaded] = useFonts({ Oswald_400Regular, Lato_400Regular });
@@ -18,7 +19,9 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <RestaurantsScreen />
+      <NavigationContainer>
+        <BottomTabNavigator />
+      </NavigationContainer>
       <ExpoStatusBar style="auto" />
     </ThemeProvider>
   );
